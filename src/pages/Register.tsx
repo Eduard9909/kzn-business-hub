@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { SignUp } from '@clerk/clerk-react';
 import DefaultLayout from '../components/layout/DefaultLayout';
 import Navbar from '../components/navigation/Navbar';
 
@@ -7,12 +8,15 @@ const Register: React.FC = () => {
   return (
     <DefaultLayout>
       <Navbar />
-      <div className="py-16 text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Register</h1>
-        <p className="text-lg text-gray-600">Create your business account</p>
-        <div className="mt-8 text-gray-500">
-          Registration page coming soon...
-        </div>
+      <div className="py-16 flex justify-center">
+        <SignUp 
+          appearance={{
+            elements: {
+              formButtonPrimary: "bg-primary hover:bg-primary/90",
+              card: "shadow-lg"
+            }
+          }}
+        />
       </div>
     </DefaultLayout>
   );
