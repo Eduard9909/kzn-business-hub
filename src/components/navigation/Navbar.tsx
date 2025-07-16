@@ -16,6 +16,10 @@ const Navbar: React.FC = () => {
     { href: '/directory', label: 'Directory' },
   ];
 
+  const authenticatedLinks = [
+    { href: '/dashboard', label: 'Dashboard' },
+  ];
+
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,6 +45,18 @@ const Navbar: React.FC = () => {
                 {link.label}
               </Link>
             ))}
+            
+            <SignedIn>
+              {authenticatedLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-gray-700 hover:text-primary font-medium transition-colors duration-200"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </SignedIn>
             
             {/* Authentication buttons */}
             <div className="flex items-center space-x-4">
@@ -98,6 +114,19 @@ const Navbar: React.FC = () => {
                   {link.label}
                 </Link>
               ))}
+              
+              <SignedIn>
+                {authenticatedLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className="text-gray-700 hover:text-primary font-medium py-2 px-3 rounded-lg hover:bg-gray-50 transition-all duration-200"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </SignedIn>
               
               {/* Mobile Authentication */}
               <div className="pt-3 border-t border-gray-100">
